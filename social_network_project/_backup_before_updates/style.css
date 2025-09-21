@@ -1,0 +1,35 @@
+/* General */
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+a { color: #1a73e8; text-decoration: none; }
+/* Forms */
+.form-container { max-width: 420px; margin: 60px auto; padding: 28px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.form-container h2 { text-align: center; margin: 0 0 18px; }
+.form-container input, .form-container textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #d0d7de; border-radius: 8px; font-size: 14px; box-sizing: border-box; }
+.form-container button { width: 100%; padding: 10px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+.form-container .error { color: #d9534f; text-align: center; margin-bottom: 8px; }
+/* Page layout */
+.container { display: flex; max-width: 1100px; margin: 24px auto; gap: 24px; padding: 0 12px; }
+.profile-card { width: 260px; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center; }
+.profile-card .avatar { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.profile-card h2 { margin: 8px 0 4px; }
+.profile-card .email { color: #555; font-size: 14px; word-break: break-word; margin-bottom: 8px; }
+.profile-card .level { color: #666; margin-bottom: 12px; }
+.share-btn, .logout-btn { display: inline-block; padding: 8px 12px; border-radius: 8px; color: #fff; margin: 6px 6px 0; }
+.share-btn { background: #1a73e8; }
+.logout-btn { background: #d9534f; }
+.main-content { flex: 1; }
+.card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); margin-bottom: 18px; }
+.add-post textarea { min-height: 80px; resize: vertical; }
+.add-post-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.add-post-actions input[type=file] { border: none; }
+.btn { background: #1a73e8; color: #fff; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+.post-header { display: flex; gap: 12px; align-items: center; }
+.post-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+.timestamp { font-size: 12px; color: #777; }
+.post-text { margin: 12px 0; font-size: 15px; color: #111; }
+.post-image { width: 100%; border-radius: 10px; margin-top: 8px; }
+.post-actions { display: flex; gap: 12px; margin-top: 10px; }
+.like-btn, .dislike-btn { background: transparent; border: none; cursor: pointer; font-size: 14px; color: #555; display: flex; align-items: center; gap: 6px; }
+.like-btn:hover { color: #1a73e8; }
+.dislike-btn:hover { color: #d9534f; }
+@media (max-width: 900px) { .container { flex-direction: column; padding: 12px; } .profile-card { width: 100%; } }

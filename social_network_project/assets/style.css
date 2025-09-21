@@ -1,0 +1,431 @@
+/* General Body and Layout */
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+
+.social-container {
+    display: flex;
+    max-width: 980px;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+/* --- Login & Forms Styles --- */
+
+.form-container {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 28px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin: 0 0 24px;
+    font-size: 1.8rem;
+    color: #1c1e21;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #606770;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-container .error {
+    color: #d9534f;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Profile Sidebar (Left) */
+.profile-sidebar {
+    flex: 0 0 320px;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.edit-pic-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+    background-color: #e4e6eb;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+.edit-pic-icon:hover {
+    background-color: #d8dbdf;
+}
+
+
+.profile-card h3 {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.profile-card p {
+    margin: 0 0 15px;
+    color: #65676b;
+    font-size: 0.9rem;
+}
+
+.profile-level {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f2f5;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.profile-level span {
+    font-weight: 600;
+}
+.profile-level i { color: #65676b; cursor: pointer; }
+
+.btn-share, .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #1877f2;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+.btn-share:hover, .btn:hover { background-color: #166fe5; }
+
+.logout-link {
+    display: block;
+    margin-top: 15px;
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: 500;
+}
+.logout-link:hover { text-decoration: underline; }
+
+/* Main Feed (Right) */
+.main-feed {
+    flex: 1;
+}
+
+/* Add Post Box */
+.add-post-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+.add-post-box h4 { margin: 0 0 15px; font-size: 1.2rem; }
+.add-post-box textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    resize: none;
+    min-height: 80px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.add-post-box textarea:focus { outline: 1px solid #1877f2; }
+
+.add-post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-post {
+    background-color: #1b74e4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-post:hover { background-color: #1869cd; }
+
+.btn-add-image {
+    color: #65676b;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.btn-add-image:hover { background-color: #e4e6eb; }
+
+/* Feed Cards */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feed-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-pic-small {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-user-info {
+    flex-grow: 1;
+}
+.post-user-info strong { font-size: 1rem; }
+.post-user-info span { font-size: 0.8rem; color: #65676b; }
+
+.delete-post-btn {
+    background: none;
+    border: none;
+    color: #65676b;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 1;
+    transition: background-color 0.2s;
+}
+.delete-post-btn:hover { background-color: #f0f2f5; }
+
+.post-content {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #e4e6eb;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #65676b;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+.action-btn:hover { background-color: #f0f2f5; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .social-container {
+        flex-direction: column;
+    }
+    .profile-sidebar {
+        flex: 1;
+    }
+}
+
+/* --- Post Image Preview Styles --- */
+.post-image-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+.post-image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 1px solid #e4e6eb;
+    object-fit: cover;
+}
+
+/* --- Modal Styles (for Forgot Password) --- */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .dialog {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+/* --- Edit Profile Modal Styles --- */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dialog h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.dialog label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.dialog input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    box-sizing: border-box; /* Important for padding and width */
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-end; /* Aligns buttons to the right */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel-edit,
+.btn-save-edit {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-save-edit {
+    background-color: #1877f2;
+    color: white;
+}
+.btn-save-edit:hover {
+    background-color: #166fe5;
+}
+
+.btn-cancel-edit {
+    background-color: #e4e6eb;
+    color: #333;
+}
+.btn-cancel-edit:hover {
+    background-color: #d8dbdf;
+}
+

@@ -1,0 +1,47 @@
+<?php
+require_once __DIR__ . '/Database.php';
+class User
+{
+    private $conn;
+    public function __construct($dbConn = null)
+    {
+        if ($dbConn) $this->conn = $dbConn;
+        else $this->conn = (new Database())->getConnection();
+    }
+    public function register($fullname, $dob, $email, $password, $profile_pic)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return ['success' => false, 'error' => 'Invalid email'];
+        if (strlen($password) < 6) return ['success' => false, 'error' => 'Password too short'];
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $this->conn->prepare('INSERT INTO users (fullname,dob,email,password,profile_pic,intermediate) VALUES (?,?,?,?,?,?)');
+        $stmt->bind_param('ssssss', $fullname, $dob, $email, $hash, $profile_pic, $intermediate = '');
+        if ($stmt->execute()) return ['success' => true];
+        else return ['success' => false, 'error' => $this->conn->error];
+    }
+    public function getByEmail($email)
+    {
+        $stmt = $this->conn->prepare('SELECT * FROM users WHERE email=? LIMIT 1');
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+    public function updateProfilePic($user_id, $profile_pic) {
+        $stmt = $this->conn->prepare("UPDATE users SET profile_pic=? WHERE id=?");
+        $stmt->bind_param("si", $profile_pic, $user_id);
+        return $stmt->execute();
+    }
+    public function updateProfile($user_id, $fullname, $email, $intermediate) {
+        $stmt = $this->conn->prepare("UPDATE users SET fullname=?, email=?, intermediate=? WHERE id=?");
+        $stmt->bind_param("sssi", $fullname, $email, $intermediate, $user_id);
+        return $stmt->execute();
+    }
+    public function resetPassword($email, $newPassword) {
+        $user = $this->getByEmail($email);
+        if(!$user) return ['success'=>false,'error'=>'No such user'];
+        $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+        $stmt = $this->conn->prepare("UPDATE users SET password=? WHERE email=?");
+        $stmt->bind_param("ss", $hash, $email);
+        if($stmt->execute()) return ['success'=>true];
+        return ['success'=>false,'error'=>$this->conn->error];
+    }
+}
